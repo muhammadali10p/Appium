@@ -9,6 +9,7 @@ public class FirstTestCases extends Base {
 
 
 
+
     @Test
     public void continueWithoutLogin(){
         extentTestCase = extentReports.createTest("Continue to google without login");
@@ -17,7 +18,7 @@ public class FirstTestCases extends Base {
             //variable to check static consent check box is checked or not;
             String isStaticChecked = mainPage.getAttribute(MainPage.statisticCheckBox,"checked","Statistic Checkbox");
             //if it is not checked enter the else block and check it before proceeding
-            if (isStaticChecked.equals("true")) {
+            if (isStaticChecked.equals("false")) {
                 //click if the checkbox is not checked
                 mainPage.clickElement(MainPage.statisticCheckBox,"Statistic Checkbox");
             }
@@ -26,7 +27,8 @@ public class FirstTestCases extends Base {
             //Clicks on No_Thanks link
             mainPage.clickElement(MainPage.link_NoThanks,"No thanks button");
 
-            if(mainPage.isElementAvailable(MainPage.txtSearchBox))
+            boolean isElementAvailable = mainPage.isElementAvailable(MainPage.txtSearchBox);
+            if(isElementAvailable)
             {
                 extentTestCase.log(Status.PASS,"Test case passed");
             }
@@ -70,7 +72,7 @@ public class FirstTestCases extends Base {
         }
         catch (Exception ex) {
             extentTestCase.log(Status.FAIL,"Ops! Something went wrong please contact QA automation team");
-            ex.printStackTrace();
+            logger.info(ex.getMessage());
         }
 
     }

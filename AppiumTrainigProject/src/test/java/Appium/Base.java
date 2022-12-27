@@ -4,6 +4,8 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import io.appium.java_client.android.AndroidDriver;
 import org.Pages.MainPage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.*;
 import java.net.URL;
@@ -13,9 +15,12 @@ public class Base {
     //Android driver instance
     public static AndroidDriver driver;
     public static  ExtentReports extentReports;
+    public static final Logger logger = LogManager.getLogger("Log4j2properties");
     public static ExtentSparkReporter sparkReporter;
     public static ExtentTest extentTestCase;
     public static MainPage mainPage;
+
+
     @BeforeClass
     public void initialize() {
 
