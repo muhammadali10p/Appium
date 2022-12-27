@@ -44,7 +44,7 @@ public class FirstTestCases extends Base {
         }
         catch (Exception ex) {
             extentTestCase.log(Status.FAIL,"Ops! Something went wrong please contact QA automation team");
-            ex.printStackTrace();
+            logger.error(ex.getMessage());
         }
     }
 

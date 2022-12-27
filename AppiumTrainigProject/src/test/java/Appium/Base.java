@@ -50,7 +50,7 @@ public class Base {
             mainPage = new MainPage(driver);
         } catch (Exception ex) {
 
-            ex.printStackTrace();
+            logger.error(ex.getMessage());
         }
 
     }
